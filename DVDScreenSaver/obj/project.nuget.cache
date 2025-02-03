@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DQ6yrQGrvbwIAkM2jMKuMb+w6RoF/GB136Wl0pR9c+d7ZnRE/Dj28SPl8wqNK5FueM9DkZAadwM0vyX7p1rJUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\frans\\source\\repos\\DVDScreenSaver\\DVDScreenSaver.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\frans\\.nuget\\packages\\raylib-cs\\7.0.0\\raylib-cs.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
