@@ -1,4 +1,5 @@
 ﻿using Raylib_cs;
+using System.Numerics;
 
 namespace LunarLander
 {
@@ -13,9 +14,11 @@ namespace LunarLander
 
         ////////////// MUUTTUJAT ///////////////////////
 
-        int screen_width = 720;
-        int screen_height = 480;
-        Color bg_color = Color.Yellow;
+        public int screen_width = 720;
+        public int screen_height = 480;
+        Color bg_color = Color.Black;
+        
+        Ship ship;
 
         // Laskeutumisalustan katon sijainti y-akselilla. Y kasvaa alaspäin
 
@@ -28,12 +31,15 @@ namespace LunarLander
         void Init()
         {
             Raylib.InitWindow(screen_width, screen_height, "Lunar Lander");
+            ship = new Ship();
+            ship.screen_width = screen_width;
+            ship.screen_height = screen_height;
         }
 
         void GameLoop()
         {
-            // Pyöritä gamelooppia niin kauan
-            // kun Raylibin ikkuna on auki
+            ship.Init();
+
             while (Raylib.WindowShouldClose() == false)
             {
                 Update();
@@ -47,9 +53,8 @@ namespace LunarLander
 
         void Update()
         {
-            // Kysy Raylibiltä miten pitkään yksi ruudunpäivitys kesti
-            float frameTime = Raylib.GetFrameTime();
             // Päivitä aluksen tilaa
+            ship.Update();
 
             // Lisää painovoiman vaikutus
 
@@ -58,20 +63,28 @@ namespace LunarLander
 
         void Draw()
         {
-            // Aloita piirtäminen
             Raylib.BeginDrawing();
 
-            // Tyhjennä ruutu tausta väriksi
             Raylib.ClearBackground(bg_color);
 
-            // Piirrä laskeutumisalusta suorakulmiona
+            DrawLandingPlatform();
 
             // Piirrä alus
+            ship.Draw();
 
             // Piirrä debug tietoja tarvittaessa, kuten nopeus
 
             //Lopeta piirtäminen
             Raylib.EndDrawing();
+        }
+
+        void DrawLandingPlatform()
+        {
+            float platformWidth = screen_width * 0.25f;
+            float platformHeight = screen_height * 0.05f;
+            Vector2 platformOrigin = new Vector2(platformWidth / 2, platformHeight / 2);
+            Rectangle platformRec = new Rectangle(screen_width / 2, screen_height - platformHeight, (int)platformWidth, (int)platformHeight);
+            Raylib.DrawRectanglePro(platformRec, platformOrigin, 0, Color.LightGray);
         }
     }
 }
