@@ -12,21 +12,16 @@ namespace LunarLander
             game.GameLoop();
         }
 
-        ////////////// MUUTTUJAT ///////////////////////
-
+        Ship ship;
         public int screen_width = 720;
         public int screen_height = 480;
-        Color bg_color = Color.Black;
-        
-        Ship ship;
-
-        // Laskeutumisalustan katon sijainti y-akselilla. Y kasvaa alaspäin
-
-        // Ruudunpäivitykseen menevä aika
-
-        // Painovoiman voimakkuus
-
-        // Ikkunan leveys ja korkeus
+        Color bg_color = Color.Black;        
+        bool LandingTextBool;
+        string LandingText;
+        Color LandingTextColor;
+        Rectangle platformRec;
+        Rectangle platformColRec;
+        int PlatformTopY;
 
         void Init()
         {
@@ -53,12 +48,35 @@ namespace LunarLander
 
         void Update()
         {
-            // Päivitä aluksen tilaa
-            ship.Update();
+            if (!ship.shipHasLanded)
+            {
+                ship.Update();
+                Collision();
+            }
+        }
 
-            // Lisää painovoiman vaikutus
+        void Collision()
+        {
+            Vector2 velocity = ship.velocity;
 
+            if (Raylib.CheckCollisionPointRec(ship.shipBottom, platformColRec) && !ship.shipHasLanded)
+            {
+                ship.shipHasLanded = true;
+                ship.velocity = new Vector2(0, 0);
 
+                if (velocity.Y > 20)
+                {
+                    LandingText = "Landing Failed!";
+                    LandingTextColor = Color.Red;
+                }
+                else
+                {
+                    LandingText = "Landing Successful!";
+                    LandingTextColor = Color.Green;
+                }
+
+                LandingTextBool = true;
+            }
         }
 
         void Draw()
@@ -67,14 +85,15 @@ namespace LunarLander
 
             Raylib.ClearBackground(bg_color);
 
-            DrawLandingPlatform();
-
-            // Piirrä alus
             ship.Draw();
+            DrawLandingPlatform();
+            if (LandingTextBool)
+            {
+                float textHeight = screen_width * 0.05f;
+                float textWidth = Raylib.MeasureText(LandingText, (int)textHeight);
+                Raylib.DrawText(LandingText, (screen_width - (int)textWidth) / 2, screen_height / 2, (int)textHeight, LandingTextColor);
+            }
 
-            // Piirrä debug tietoja tarvittaessa, kuten nopeus
-
-            //Lopeta piirtäminen
             Raylib.EndDrawing();
         }
 
@@ -82,8 +101,10 @@ namespace LunarLander
         {
             float platformWidth = screen_width * 0.25f;
             float platformHeight = screen_height * 0.05f;
+            PlatformTopY = screen_height - (int)platformHeight;
             Vector2 platformOrigin = new Vector2(platformWidth / 2, platformHeight / 2);
-            Rectangle platformRec = new Rectangle(screen_width / 2, screen_height - platformHeight, (int)platformWidth, (int)platformHeight);
+            platformRec = new Rectangle(screen_width / 2, screen_height - platformHeight / 2, (int)platformWidth, (int)platformHeight);
+            platformColRec = new Rectangle(0, PlatformTopY, screen_width, platformHeight);
             Raylib.DrawRectanglePro(platformRec, platformOrigin, 0, Color.LightGray);
         }
     }
