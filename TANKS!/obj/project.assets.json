@@ -72,11 +72,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\frans\\source\\repos\\TANKS!\\TANKS!.csproj",
+      "projectUniqueName": "B:\\Raylib\\Raylib-Cs\\TANKS!\\TANKS!.csproj",
       "projectName": "TANKS!",
-      "projectPath": "C:\\Users\\frans\\source\\repos\\TANKS!\\TANKS!.csproj",
+      "projectPath": "B:\\Raylib\\Raylib-Cs\\TANKS!\\TANKS!.csproj",
       "packagesPath": "C:\\Users\\frans\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\frans\\source\\repos\\TANKS!\\obj\\",
+      "outputPath": "B:\\Raylib\\Raylib-Cs\\TANKS!\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\frans\\AppData\\Roaming\\NuGet\\NuGet.Config",

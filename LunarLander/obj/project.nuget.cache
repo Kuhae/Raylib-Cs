@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "rm4e6OLMLslnDLO9h5S9sYDhY/tIPwSq43NaAZf7oeNNUXH/xDjlZzT8QJc50hbSjQAMTCUC+PxcoJTGqzpsSg==",
+  "success": true,
+  "projectFilePath": "B:\\Raylib\\Raylib-Cs\\LunarLander\\LunarLander.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\frans\\.nuget\\packages\\raylib-cs\\7.0.1\\raylib-cs.7.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

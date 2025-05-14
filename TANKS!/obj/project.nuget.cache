@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4xZqOVKc2vNxXKjJcWg/4TCeldgztitfGw7Y4Ha4Gq3PYYoV/pa55vO6uxdTaIGfDoQrt+W6SNHqbAkhUgzYkA==",
+  "dgSpecHash": "8JBg9tWEXQUfSKB1VTKR5M5pOdo6aRPrGc1lhinnLAdOQBGZosUT8q3iHoXhrZroiiW8AAnXtr8EtXRAYSur7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\frans\\source\\repos\\TANKS!\\TANKS!.csproj",
+  "projectFilePath": "B:\\Raylib\\Raylib-Cs\\TANKS!\\TANKS!.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\frans\\.nuget\\packages\\raylib-cs\\7.0.0\\raylib-cs.7.0.0.nupkg.sha512"
   ],
